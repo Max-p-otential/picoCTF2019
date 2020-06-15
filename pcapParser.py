@@ -1,7 +1,14 @@
 import dpkt
+import sys
 
 def main():
-	f = open("capture.pcap", "rb")
+	arguments=sys.argv[1:]
+	argc = len(arguments)
+	f =''
+	if(len(arguments)==0):
+		f = open("capture.pcap", "rb")
+	if(len(arguments)>=1):
+		f = open(arguments[argc-1], "rb")
 	pcap = dpkt.pcap.Reader(f)
 	data = ""
 
