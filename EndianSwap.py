@@ -16,10 +16,11 @@ class EndSwap:
         result=[]
         lenn = len (bytelist)
         while (len(bytelist)>wsize):
-            print (str(len(bytelist)/wsize) + " / " + str(lenn))
+            if ((len(bytelist)/wsize)%1000 < 1):
+                print(str(len(bytelist)/wsize) + " / " + str(lenn/wsize))
             rl = []
             for i in range(wsize):
-                rl= [bytelist.pop(0)] + rl
+                rl.insert(0,bytelist.pop(0))
             result=result +rl
         result = result + bytelist
         return result
